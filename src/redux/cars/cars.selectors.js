@@ -1,19 +1,5 @@
-import { useSelector } from 'react-redux'
-
-const CarDetails = ({ carId }) => {
-  const car = useSelector((state) => selectCarById(state, carId));
-
-  if (!car) {
-    return <div>Car not found.</div>;
-  }
-
-  return (
-    <div>
-      <h2>{car.make} {car.model}</h2>
-      <p>Year: {car.year}</p>
-      {/* Other car details */}
-    </div>
-  );
-};
-
-export default CarDetails;
+export const selectCars = (state) => state.carsStore.cars;
+export const selectFavorites = (state) => state.carStore.favorites;
+export const selectBrandsCars = (state) => state.carStore.brandsCars;
+export const selectIsLoading = (state) => state.autosStore.isLoading;
+export const selectError = (state) => state.autosStore.error;
